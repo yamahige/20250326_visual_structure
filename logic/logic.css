@@ -1,0 +1,162 @@
+/* ****
+ロジック
+とりあえずクラス名にプレフィックス`--logic-`を付ける
+**** */
+
+/* ****
+ストレート
+**** */
+
+:root {
+    --logic-arrow-size: 1.5em;
+}
+
+.--logic-flex-inline > * {
+    display: flex;
+    flex-direction: row;
+}
+.--logic-flex-inline-reverse > * {
+    display: flex;
+    flex-direction: row-reverse;
+}
+.--logic-flex-inline > *,
+.--logic-flex-inline-reverse > * {
+    flex: auto;
+    column-gap: 2em;
+    align-items: center;
+    list-style-type: none;
+}
+
+.--logic-flex-inline > * > *,
+.--logic-flex-inline-reverse > * > * {
+    position: relative;
+    border: thin solid darkorange;
+    border-radius: .5em;
+    inline-size: 80%;
+    padding: .2em .3em;
+    text-align: center;
+    word-break: normal;
+    text-wrap: balance;
+}
+.--logic-flex-inline > * > *:not(:last-child)::after,
+.--logic-flex-inline-reverse > * > *:not(:last-child)::before {
+    display: inline-block;
+    content: "";
+    background-size: contain;
+    inline-size: var(--logic-arrow-size);
+    block-size: var(--logic-arrow-size);
+    position: absolute;
+}
+.--logic-flex-inline > * > *:not(:last-child)::after{
+    background-image: url("arrow-right.svg");
+    top: calc(50% - var(--logic-arrow-size) / 2);
+    right: calc(-1 * var(--logic-arrow-size) - .25em);
+
+}
+.--logic-flex-inline-reverse > * > *:not(:last-child)::before {
+    background-image: url("arrow-left.svg");
+    top: calc(50% - var(--logic-arrow-size) / 2);
+    left: calc(-1 * var(--logic-arrow-size) - .25em);
+}
+
+.--logic-flex-inline.--logic-flex-inline-box > *,
+.--logic-flex-inline-reverse.--logic-flex-inline-box > * {
+    align-items: start;
+    text-align: left;
+    text-wrap: auto;
+}
+.--logic-flex-inline.--logic-flex-inline-box > * > *,
+.--logic-flex-inline-reverse.--logic-flex-inline-box > * > * {
+    text-align: left;
+    text-wrap: auto;
+}
+.--logic-flex-inline.--logic-flex-inline-box > * > * > ul,
+.--logic-flex-inline-reverse.--logic-flex-inline-box > * > * > ul {
+    padding-inline-start: 1em;
+}
+.--logic-flex-inline.--logic-flex-inline-box > * > *:not(:last-child)::after,
+.--logic-flex-inline-reverse.--logic-flex-inline-box > * > *:not(:last-child)::before {
+    top: var(--logic-arrow-size);
+}
+
+/* ***
+循環
+*** */
+
+:root {
+    --logic-cycle-arrow-size: 1.5em;
+    --logic-cycle-arrow-length: var(--logic-cycle-arrow-size);
+    --logic-cycle-arrow-width: var(--logic-cycle-arrow-size);
+    --logic-cycle-block-size: 2em;
+    --logic-cycle-column-gap: 3em;
+}
+
+.--logic-cycle-4 {
+    margin-block-start: calc(2 * var(--logic-cycle-block-size) + 1em);
+}
+.--logic-cycle-4 > * {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* 4 items - 1 */
+    column-gap: var(--logic-cycle-column-gap);
+    align-items: center;
+    list-style-type: none;
+}
+.--logic-cycle-4 > * > * {
+    position: relative;
+    border: thick double darkseagreen;
+    border-radius: .5em;
+    inline-size: 100%;
+    padding: .2em .3em;
+    text-align: center;
+}
+.--logic-cycle-4 > * > *:nth-child(1)::after,
+.--logic-cycle-4 > * > *:nth-child(2)::after {
+    display: inline-block;
+    content: "";
+    background-size: contain;
+    inline-size: var(--logic-cycle-arrow-length);
+    block-size: var(--logic-cycle-arrow-width);
+    position: absolute;
+    background-image: url("arrow-right.svg");
+}
+.--logic-cycle-4 > * > *:nth-child(1)::after {
+    top: -2em;
+    transform: rotate(-45deg);
+    right: calc(-1 * var(--logic-cycle-arrow-size) - .25em);
+}
+.--logic-cycle-4 > * > *:nth-child(2) {
+    top: calc(-2 * var(--logic-cycle-block-size));
+}
+.--logic-cycle-4 > * > *:nth-child(2)::after {
+    bottom: -2em;
+    transform: rotate(45deg);
+    right: calc(-1 * var(--logic-cycle-arrow-size) - .5em);
+}
+.--logic-cycle-4 > * > *:nth-child(3)::before,
+.--logic-cycle-4 > * > *:nth-child(4)::before {
+    display: inline-block;
+    content: "";
+    background-size: contain;
+    inline-size: var(--logic-cycle-arrow-length);
+    block-size: var(--logic-cycle-arrow-width);
+    position: absolute;
+    background-image: url("arrow-left.svg");
+    left: calc(-1 * var(--logic-cycle-arrow-size) - .25em);
+}
+.--logic-cycle-4 > * > *:nth-child(3)::before {
+    bottom: -2em;
+    transform: rotate(-45deg);
+}
+.--logic-cycle-4 > * > *:nth-child(4) {
+    position: relative;
+    top: var(--logic-cycle-block-size);
+    left: calc(100% + var(--logic-cycle-column-gap));
+}
+.--logic-cycle-4 > * > *:nth-child(4)::before {
+    top: -2em;
+    transform: rotate(45deg);
+}
+
+/* ***
+End of script
+*** */
