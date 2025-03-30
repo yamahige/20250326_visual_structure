@@ -39,7 +39,7 @@
     inline-size: 80%;
     padding: .2em .3em;
     text-align: center;
-    word-break: normal;
+    word-break: normal; /* auto-phrase */
     text-wrap: balance;
 }
 .--logic-flex-inline > * > *:not(:last-child)::after,
@@ -108,12 +108,12 @@
     column-gap: var(--logic-cycle-column-gap);
     align-items: center;
     list-style-type: none;
+    padding: 0;
 }
 .--logic-cycle-4 > * > * {
     position: relative;
     border: thick double darkseagreen;
     border-radius: .5em;
-    inline-size: 100%;
     padding: .2em .3em;
     text-align: center;
 }
@@ -163,6 +163,77 @@
 .--logic-cycle-4 > * > *:nth-child(4)::before {
     top: -2em;
     transform: rotate(45deg);
+}
+
+/*
+コンパクト
+*/
+
+.--logic-cycle-compact-4 {
+    margin-block-start: calc(2 * var(--logic-cycle-block-size) + 1em);
+}
+.--logic-cycle-compact-4 > * {
+    display: grid;
+    grid-template-columns: 3fr 1fr 3fr; /* 4 items - 1 */
+    column-gap: 0;
+    align-items: center;
+    list-style-type: none;
+    padding: 0;
+}
+.--logic-cycle-compact-4 > * > * {
+    position: relative;
+    border: thick double darkseagreen;
+    border-radius: .5em;
+    padding: .2em .3em;
+    text-align: center;
+}
+.--logic-cycle-compact-4 > * > *:nth-child(2)::before,
+.--logic-cycle-compact-4 > * > *:nth-child(2)::after {
+    display: inline-block;
+    content: "";
+    background-size: contain;
+    inline-size: var(--logic-cycle-arrow-length);
+    block-size: var(--logic-cycle-arrow-width);
+    position: absolute;
+    bottom: calc(-1 * var(--logic-cycle-block-size) + .5em);
+    background-image: url("arrow-right.svg");
+}
+.--logic-cycle-compact-4 > * > *:nth-child(2)::before {
+    left: -2em;
+    transform: rotate(-45deg);
+}
+.--logic-cycle-compact-4 > * > *:nth-child(2)::after {
+    right: calc(-1 * var(--logic-cycle-arrow-size) - .5em);
+    transform: rotate(45deg);
+}
+.--logic-cycle-compact-4 > * > *:nth-child(2) {
+    top: calc(-2 * var(--logic-cycle-block-size));
+    left: -100%;
+    inline-size: 300%;
+}
+.--logic-cycle-compact-4 > * > *:nth-child(4)::before,
+.--logic-cycle-compact-4 > * > *:nth-child(4)::after {
+    display: inline-block;
+    content: "";
+    background-size: contain;
+    inline-size: var(--logic-cycle-arrow-length);
+    block-size: var(--logic-cycle-arrow-width);
+    position: absolute;
+    top: -2em;
+    background-image: url("arrow-left.svg");
+}
+.--logic-cycle-compact-4 > * > *:nth-child(4)::before {
+    left: calc(-1 * var(--logic-cycle-arrow-size) - .25em);
+    transform: rotate(45deg);
+}
+.--logic-cycle-compact-4 > * > *:nth-child(4)::after {
+    right: calc(-1 * var(--logic-cycle-arrow-size) - .25em);
+    transform: rotate(-45deg);
+}
+.--logic-cycle-compact-4 > * > *:nth-child(4) {
+    top: var(--logic-cycle-block-size);
+    left: 66%;
+    inline-size: 100%;
 }
 
 /* ***

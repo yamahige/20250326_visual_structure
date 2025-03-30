@@ -77,6 +77,19 @@ v1
 
 </figure>
 
+## 循環 - オーバーラップ
+
+アイテムの数は固定、この例では4個。
+
+<figure class="--logic-cycle-compact-4">
+
+- 吾輩はAである
+- なぜA?
+- 吾輩はBである
+- なぜB?
+
+</figure>
+
 <!--
 Web Publication (WebPub) Format
 $ vivliostyle build slide.md -o web/ -f webpub
