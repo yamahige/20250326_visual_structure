@@ -79,9 +79,9 @@ v1
 
 ## 循環 - オーバーラップ
 
-アイテムの数は固定、この例では4個。
+アイテムが左右にオーバーラップする例、個々のアイテムの幅に比べて全体の左右の幅が狭くて済む。アイテムの数は固定、この例では4個。
 
-<figure class="--logic-cycle-compact-4">
+<figure class="--logic-cycle-compact-4" style="inline-size: 80%; margin-inline: auto;">
 
 - 吾輩はAである
 - なぜA?
